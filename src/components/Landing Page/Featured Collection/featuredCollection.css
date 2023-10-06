@@ -1,0 +1,96 @@
+.featuredCollection-root {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  height: 600px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.featuredCollection-header {
+  margin-bottom: 40px;
+}
+.featuredCollection-container {
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+  /* background-color: blue; */
+  justify-content: space-between;
+}
+.featuredCollection-card .img-container img {
+  height: 400px;
+  width: 290px;
+}
+.featuredCollection-details {
+  text-align: left;
+}
+.featuredCollection-color {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+.featuredCollection-color .box {
+  width: 15px;
+  height: 15px;
+}
+.featuredCollection-color .active {
+  border: 2px solid grey;
+}
+.featuredCollection-size .size {
+  border: 1px solid #d0d0d0;
+  background-color: white;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.featuredCollection-size {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.featuredCollection-size .active {
+  background-color: #9c27b0 !important;
+  color: white;
+}
+.featuredCollection-btn {
+  position: absolute;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 300px;
+  visibility: hidden;
+}
+.featuredCollection-card:hover .featuredCollection-btn {
+  visibility: visible; /* Show the button on hover */
+  z-index: 999;
+}
+.featuredCollection-card:hover img {
+  filter: blur(3px); /* Decrease the alpha value to make it darker */
+  }
+.featuredCollection-btn:hover {
+  cursor: pointer;
+}
+.featuredCollection-btn button {
+  margin-bottom: 15px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  opacity: 1;
+  transition: all 0.5s;
+}
+.featuredCollection-btn button:hover {
+  background-color: #9c27b0;
+  color: white;
+}

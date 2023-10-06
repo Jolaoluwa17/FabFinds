@@ -1,0 +1,55 @@
+.fifth-section-root {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+}
+.fifth-section-content {
+  height: 100%;
+  width: 85%;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: space-between;
+}
+.fifth-section-card {
+  width: 24%;
+  height: 100%;
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: #e7e7e7 solid 1px;
+  transition: all 0.5s;
+}
+.fifth-section-card:hover .fifth-section-icon {
+  color: #9c27b0;
+}
+.fifth-section-icon {
+  font-size: 50px;
+  background-color: #f3f7fe;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: all 0.5s;
+}
+.fifth-section-card .card-header {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.fifth-section-card .card-content {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}

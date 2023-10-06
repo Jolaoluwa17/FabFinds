@@ -1,0 +1,38 @@
+.image-container img {
+  width: 100%;
+  height: 600px;
+}
+.content {
+  position: absolute;
+  color: white;
+  height: 50%;
+  top: 50%; /* Adjust the vertical position as needed */
+  left: 50%; /* Adjust the horizontal position as needed */
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Ensure the title is displayed above the image */
+  text-align: center;
+}
+.content h1 {
+  font-size: 50px;
+  margin-top: 40px;
+}
+.content h4 {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.collectionbtn button {
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 20px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  transition: all 0.5s;
+}
+.collectionbtn button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}

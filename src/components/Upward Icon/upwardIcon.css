@@ -1,0 +1,16 @@
+.icon-cont {
+  display: flex;
+  padding: 20px;
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+}
+.upward-icon {
+  position: inherit;
+  height: 50px;
+  width: 50px;
+  background-color: red;
+  font-size: 20px;
+}
