@@ -1,10 +1,17 @@
-.headerContainer {
+.headerContainer-root {
   display: flex;
-  padding: 20px;
-  padding-left: 200px;
-  padding-right: 200px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+}
+.scrolled-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   height: 80px;
   width: 100%;
@@ -12,11 +19,20 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-.headerContainer h1 {
+.header-container {
+  display: flex;
+  padding: 25px;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  width: 85%;
+}
+
+.header-container h1 {
   font-size: 35px;
   font-weight: 900;
 }
-.headerContainer ul {
+.header-container ul {
   display: flex;
   width: 500px;
   justify-content: space-around;
@@ -29,7 +45,7 @@ li a {
 li a:hover {
   color: #9c27b0;
 }
-.headerContainer ul li {
+.header-container ul li {
   text-decoration: none;
   list-style: none;
   font-size: 16px;
@@ -51,4 +67,29 @@ li a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.drawer_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.drawer_container .continue_shopping_button {
+  padding: 10px 20px;
+  background-color: #9c27b0;
+  color: white;
+  border: none;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.drawer_container .have_an_account {
+  font-size: 20px;
+  font-weight: 600;
+}
+.drawer_container .login_text {
+  margin-top: 10px;
+  color: #414141;
 }

@@ -1,0 +1,40 @@
+.signupRoot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.signupcontainer {
+  width: 450px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+}
+.signupHeader {
+  display: flex;
+  align-items: center;
+}
+.signupHeader .title {
+  padding-left: 22%;
+  font-weight: 600;
+}
+.signupHeader .cancelBtn {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signupHeader .cancelBtn:hover {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #dddddddd;
+}

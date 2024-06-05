@@ -1,0 +1,56 @@
+.collection-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.collection-container {
+  width: 85%;
+}
+.collection-indicator {
+  margin-top: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.collection-title {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 40px;
+  font-weight: 600;
+}
+.collection-filter-container {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #e6e5e5;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+}
+.filter-view {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  font-size: 30px;
+  justify-content: space-between;
+}
+.no-of-products{
+  color: #acacac;
+  font-size: 14px;
+}
+.sort-by {
+  font-size: 14px;
+}
+.filter{
+  margin-left: 5px;
+  padding: 5px;
+  border: 1px solid #e6e5e5;
+  outline: none;
+}
+.filter-word {
+  /* font-size: 14px; */
+  display: flex;
+  align-items: center;
+}

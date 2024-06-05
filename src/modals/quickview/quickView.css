@@ -1,0 +1,128 @@
+.quickView_root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.quickview_container {
+  width: 950px;
+  background-color: white;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.quickview_container .quickview_left_section {
+  width: 40%;
+  /* height: 200px; */
+}
+.quickview_container .quickview_right_section {
+  width: 55%;
+  /* height: 200px; */
+  text-align: left;
+}
+.quickview_container .quickview_right_section .top_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.quickview_container .quickview_right_section .quickview_title {
+  font-size: 25px;
+  font-weight: 600;
+}
+.quickview_right_section .serial_no {
+  margin-top: 20px;
+}
+.quickview_size,
+.quick_view_qty {
+  margin-top: 20px;
+}
+.quickviewbox,
+.quick_view_size {
+  height: 50px;
+  width: 50px;
+}
+.quick_view_size {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 1px solid #e6e6e6;
+  color: black;
+  margin-right: 10px;
+}
+.quickview_price {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.quickview_color_picker {
+  margin-top: 20px;
+}
+.quickview_active1 {
+  margin-right: 10px;
+}
+.quickview_active {
+  border: black 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  width: 55px;
+}
+.quick_view_size_active {
+  background-color: #9c27b0;
+  color: white;
+}
+.quickview_header {
+  display: flex;
+  align-items: center;
+}
+.quickview_header .title {
+  padding-left: 22%;
+  font-weight: 600;
+}
+.quickview_header .cancelBtn {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quickview_header .cancelBtn:hover {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #dddddddd;
+}
+.quick_view_amount {
+  display: flex;
+  width: 120px;
+  padding: 8px 10px;
+  justify-content: space-between;
+  border: 1px solid #e6e6e6;
+  margin-top: 20px;
+}
+.quick_view_minus_btn,
+.quick_view_add_btn {
+  margin-top: 3px;
+  cursor: pointer;
+}
+.quick_view_add_to_cart {
+  background-color: #9c27b0;
+  width: 100%;
+  padding: 15px 0px;
+  margin-top: 20px;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

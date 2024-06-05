@@ -71,11 +71,11 @@
 }
 .featuredCollection-card:hover .featuredCollection-btn {
   visibility: visible; /* Show the button on hover */
-  z-index: 999;
+  z-index: 1;
 }
 .featuredCollection-card:hover img {
-  filter: blur(3px); /* Decrease the alpha value to make it darker */
-  }
+  filter: blur(3px); 
+}
 .featuredCollection-btn:hover {
   cursor: pointer;
 }
@@ -89,8 +89,18 @@
   background-color: white;
   opacity: 1;
   transition: all 0.5s;
+  border-radius: 5px;
 }
 .featuredCollection-btn button:hover {
   background-color: #9c27b0;
   color: white;
+}
+
+/* product card */
+.productcard-root {
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+  justify-content: space-between;
+  margin-top: 30px;
 }

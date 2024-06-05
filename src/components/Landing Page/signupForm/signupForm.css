@@ -1,0 +1,66 @@
+.signupForm {
+  margin-top: 20px;
+}
+.signupForm .formItem {
+  margin-bottom: 20px;
+  width: 49%;
+  border: 1px solid #dddddddd;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+.signupForm .formItem2 {
+  width: 100%;
+  border: 1px solid #dddddddd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+}
+.signupForm .topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.signupForm .formInput {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+.signupForm .countryNo {
+  width: 70px;
+  border: 1px solid #dddddddd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  margin-right: 8px;
+}
+.signupForm .numberContainer {
+  border: 1px solid #dddddddd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.tos {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.tos b {
+  color: #9c27b0;
+  cursor: pointer;
+}
+.agreeBtn {
+  background-color: #9c27b0;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 12px 0px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.agreeBtn:hover {
+  cursor: pointer;
+}

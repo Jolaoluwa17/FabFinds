@@ -1,0 +1,106 @@
+.cart_root {
+  height: 100%;
+  position: relative;
+}
+.cart_list {
+  height: 65%;
+  overflow-y: scroll;
+}
+
+/* Custom scrollbar for WebKit browsers */
+.cart_list::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+}
+
+.cart_list::-webkit-scrollbar-track {
+  background: white; /* Color of the track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+.cart_list::-webkit-scrollbar-thumb {
+  background: white; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.cart_list::-webkit-scrollbar-thumb:hover {
+  background: white; /* Color of the scrollbar thumb when hovered */
+}
+
+.cart_item {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.cart_item .left_section {
+  height: 200px;
+  width: 170px;
+  margin-right: 15px;
+}
+.cart_item .right_section p {
+  margin-bottom: 8px;
+}
+.cart_item .right_section .price {
+  font-weight: 600;
+}
+.cart_item .right_section .amount {
+  display: flex;
+  width: 120px;
+  padding: 8px 10px;
+  justify-content: space-between;
+  border: 1px solid #f4f4f4;
+}
+.cart_item .right_section .minus_btn,
+.cart_item .right_section .add_btn {
+  margin-top: 3px;
+  cursor: pointer;
+}
+.cart_item .right_section .delete_btn {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.billing_content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.loader-bar-container {
+  width: 100%;
+  height: 5px;
+  background-color: lightgray;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.loader-bar {
+  height: 100%;
+  background-color: green;
+  transition: width 0.5s ease;
+}
+.cart_root .sub_total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: last baseline;
+}
+.cart_root .more_info {
+  margin-top: 20px;
+  color: #121212;
+}
+.view_check_btn_container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.cart_root .view_check_btn {
+  width: 47%;
+  padding: 14px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #9c27b0;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+}
