@@ -6,12 +6,9 @@ import AuthenticationButton from "@/components/authenticationBtn/AuthenticationB
 import { IoIosEye } from "react-icons/io";
 import { IoIosEyeOff } from "react-icons/io";
 import { useSignUpMutation } from "@/api/features/auth/authApiSlice";
+import PasswordStrengthChecker from "@/components/passwordChecker/PasswordChecker";
 
 function SignupForm(props) {
-  // const [email, setEmail] = useState("");
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
   const [formData, setFormData] = React.useState({
     userType: "user",
     name: "",
@@ -20,6 +17,7 @@ function SignupForm(props) {
     phoneNo: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
     setFormData((prevData) => ({
@@ -49,10 +47,7 @@ function SignupForm(props) {
     setConfirmPassword(event.target.value);
   };
 
-  // console.log(formData.password === confirmPassword);
   const [validation, setValidation] = useState(false);
-  console.log(validation);
-  console.log(formData);
   React.useEffect(() => {
     const isValid =
       formData.password === confirmPassword &&
@@ -81,12 +76,13 @@ function SignupForm(props) {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const res = await signup(formData);
-      setIsLoading(false);
-      window.location.reload();
+      await signup(formData);
+      props.setSignup(false);
+      props.setVerifyAccount(true);
     } catch (error) {
-      console.error(error);
-      window.alert("An error occurred. Please try again.");
+      setErrorMsg("Something went wrong");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -167,6 +163,9 @@ function SignupForm(props) {
           />
         )}
       </div>
+      <div style={{ marginBottom: "10px" }}>
+        <PasswordStrengthChecker password={formData.password} />
+      </div>
       <div
         className="formItem2"
         style={
@@ -210,6 +209,7 @@ function SignupForm(props) {
         text="Agree and Continue"
         status={validation}
         onClick={handleSignUp}
+        isLoading={isLoading}
       />
     </div>
   );

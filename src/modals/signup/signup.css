@@ -21,8 +21,14 @@
   align-items: center;
 }
 .signupHeader .title {
-  padding-left: 22%;
+  padding-left: 27%;
   font-weight: 600;
+}
+.signupRoot .subTitle {
+  font-size: 13px;
+  color: grey;
+  text-align: center;
+  margin-top: 10px;
 }
 .signupHeader .cancelBtn {
   height: 30px;

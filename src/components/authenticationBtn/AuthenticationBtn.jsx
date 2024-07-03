@@ -2,20 +2,21 @@ import React from "react";
 import "./authenticationBtn.css";
 
 function AuthenticationButton(props) {
+  const { onClick, status, text, isLoading } = props;
   return (
     <button
-      onClick={props.onClick}
+      onClick={onClick}
       style={{
-        backgroundColor: props.status === true ? "#9c27b0" : "grey",
+        backgroundColor: status ? "#9c27b0" : "grey",
         width: "100%",
         border: "none",
         color: "white",
-        cursor: props.status === true ? "pointer" : "not-allowed"
+        cursor: status ? "pointer" : "not-allowed",
       }}
       className="authenticationBtn"
-      disabled={!props.status}
+      disabled={!status}
     >
-      {props.text}
+      {isLoading === false ? text : <div className="exampleBtn"></div>}
     </button>
   );
 }

@@ -10,11 +10,6 @@ export const logout = async () => {
       },
       credentials: "include", // Ensure cookies are sent with the request
     });
-
-    if (!response.ok) {
-      throw new Error("Logout failed");
-    }
-    Cookies.remove("user"); // Clear user data from cookies
   } catch (error) {
     console.error("Error during logout:", error);
   }

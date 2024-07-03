@@ -29,9 +29,9 @@ const FirstSection = () => {
                 <div className="content">
                   <h1>SHOP LATEST BRAND</h1>
                   <h4>On All Your Favorites</h4>
-                  <div className="collectionbtn">
+                  {/* <div className="collectionbtn">
                     <button>Browse Collection</button>
-                  </div>
+                  </div> */}
                 </div>
                 <img
                   src="https://res.cloudinary.com/dvv4wwuk1/image/upload/v1695644228/FabFinds%20Frontend/piotr-szulawski-XjR-Y8PKeww-unsplash_dyphxr.jpg"

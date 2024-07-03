@@ -5,13 +5,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { Providers } from "@/api/provider";
-import {
-  useState,
-  Children,
-  cloneElement,
-  ReactNode,
-  ReactElement,
-} from "react";
+import { useState } from "react";
 import React from "react";
 import { OpenProvider } from "@/context/OpenProvider";
 

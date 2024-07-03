@@ -2,8 +2,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  /* width: 100%; */
   bottom: 0;
+  right: 0;
   background-color: rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
@@ -126,3 +127,4 @@
   justify-content: center;
   cursor: pointer;
 }
+

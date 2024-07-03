@@ -4,16 +4,24 @@ import "./login.css";
 import { AiOutlineClose } from "react-icons/ai";
 import AuthenticationButton from "@/components/authenticationBtn/AuthenticationBtn";
 import { useState, useRef, useEffect } from "react";
-import { useLoginMutation } from "@/api/features/auth/authApiSlice";
-import { useAppDispatch } from "@/api/hooks";
-import Cookies from "js-cookie";
-import { setTokens } from "@/api/features/auth/authSlice";
+import {
+  useLoginMutation,
+  useSendVerifyEmailMutation,
+} from "@/api/features/auth/authApiSlice";
+import { IoIosEye } from "react-icons/io";
+import { IoIosEyeOff } from "react-icons/io";
+import { BiSolidErrorAlt } from "react-icons/bi";
+import { setCredentials } from "@/api/features/auth/authSlice";
+import { useDispatch } from "react-redux";
 
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login] = useLoginMutation();
-  const dispatch = useAppDispatch();
+  const [sendVerifyEmail] = useSendVerifyEmailMutation();
+  const [errorMsg, setErrorMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -23,26 +31,41 @@ function Login(props) {
     setPassword(e.target.value);
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const handleLogin = async () => {
+    dispatch(setCredentials({ email, password }));
     try {
-      const res = await login({ userType: "user", email, password });
-
-      if ("data" in res) {
-        const userData = res.data;
-        dispatch(
-          setTokens({
-            user: userData.user,
-          })
-        );
-      }
-      setPassword("");
-      setEmail("");
+      setIsLoading(true);
+      await login({ userType: "user", email, password }).unwrap();
       window.location.reload();
     } catch (error) {
-      console.log(error);
-      window.alert("login not successful");
+      if (error.data.message === "Incorrect password") {
+        setErrorMsg("Wrong email or password");
+      } else if (error.data.message === "User not verified") {
+        handleSendVerifyEmail();
+        props.setLogin(false);
+        props.setVerifyAccount(true);
+      } else {
+        setErrorMsg("Something went wrong");
+      }
+    } finally {
+      setIsLoading(false);
     }
+  };
+
+  const handleSendVerifyEmail = async () => {
+    try {
+      setIsLoading(true);
+      await sendVerifyEmail({ email: email }).unwrap();
+    } catch (error) {
+      setErrorMsg("Something went wrong");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
   return props.login ? (
@@ -53,12 +76,16 @@ function Login(props) {
             className="cancelBtn"
             onClick={() => {
               props.setLogin(false);
+              setEmail("");
+              setPassword("");
+              setErrorMsg("");
             }}
           >
             <AiOutlineClose />
           </div>
         </div>
-        <div className="title">Welcome back</div>
+        <div className="title">Welcome back!</div>
+        <p className="subTitle">Your Fashion Journey Continues</p>
         <div className="formItem">
           <input
             type="email"
@@ -68,20 +95,47 @@ function Login(props) {
             onChange={handleEmailChange}
           />
         </div>
-        <div className="formItem">
+        <div className="formItem2" style={{}}>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             className="formInput"
             placeholder="Password"
             value={password}
             onChange={handlePasswordChange}
           />
+          {showPassword ? (
+            <IoIosEye
+              onClick={togglePasswordVisibility}
+              fontSize={20}
+              color="grey"
+              style={{ cursor: "pointer" }}
+            />
+          ) : (
+            <IoIosEyeOff
+              onClick={togglePasswordVisibility}
+              fontSize={20}
+              color="grey"
+              style={{ cursor: "pointer" }}
+            />
+          )}
         </div>
-        <div className="forgotPassword">forgot password?</div>
+        {errorMsg !== "" && (
+          <p className="error_message">
+            <BiSolidErrorAlt style={{ marginRight: "5px" }} fontSize={16} />
+            {errorMsg}
+          </p>
+        )}
+        <div
+          className="forgotPassword"
+          onClick={() => [props.setLogin(false), props.setForgotPassword(true)]}
+        >
+          forgot password?
+        </div>
         <AuthenticationButton
           text="Login"
           status={password !== ""}
           onClick={handleLogin}
+          isLoading={isLoading}
         />
       </div>
     </div>

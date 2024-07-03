@@ -17,18 +17,35 @@ import Logout from "@mui/icons-material/Logout";
 import { IoPersonSharp } from "react-icons/io5";
 import Login from "@/modals/login/Login";
 import Signup from "@/modals/signup/Signup";
-import { isUserLoggedIn } from "@/api/auth";
 import { logout } from "@/api/features/auth/logout";
+import { useIsLoggedInQuery } from "@/api/features/auth/isUserLoggedIn";
+import VerifyAccount from "@/modals/verifyAccount/VerifyAccount";
+import ForgotPassword from "@/modals/forgotpassword/ForgotPassword";
 
 export default function AccountMenu(props) {
   const [signup, setSignup] = React.useState(false);
+  const [verifyAccount, setVerifyAccount] = React.useState(false);
+  const [forgotPassword, setForgotPassword] = React.useState(false);
+
+  const {
+    data: user,
+    isLoading: userLoading,
+    isSuccess: userSuccess,
+    isError: userError,
+    error: userErrorData,
+    refetch: refetchUser,
+  } = useIsLoggedInQuery();
 
   // checks if user is logged in
   const [loggedin, setIsLoggedIn] = React.useState(false);
+
   React.useEffect(() => {
-    const initialLoginStatus = isUserLoggedIn();
-    setIsLoggedIn(initialLoginStatus);
-  }, []);
+    if (user && user.username) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [user]);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -40,7 +57,7 @@ export default function AccountMenu(props) {
   };
 
   React.useEffect(() => {
-    if (anchorEl || props.login || signup) {
+    if (anchorEl || props.login || signup || verifyAccount || forgotPassword) {
       document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
     } else {
@@ -52,7 +69,7 @@ export default function AccountMenu(props) {
       document.documentElement.style.overflow = "auto";
       document.body.style.overflow = "auto";
     };
-  }, [anchorEl || props.login || signup]);
+  }, [anchorEl || props.login || signup || verifyAccount || forgotPassword]);
 
   const handleLogout = async () => {
     try {
@@ -60,10 +77,8 @@ export default function AccountMenu(props) {
       // Optional: Handle successful logout (e.g., redirect to login page)
       handleClose();
       window.location.reload();
-      console.log("Logout successful");
     } catch (error) {
       console.error("Error during logout:", error);
-      // Handle logout errors (e.g., display an error message)
     }
   };
 
@@ -194,8 +209,26 @@ export default function AccountMenu(props) {
           )}
         </Menu>
       </React.Fragment>
-      <Login login={props.login} setLogin={props.setLogin} />
-      <Signup signup={signup} setSignup={setSignup} />
+      <Login
+        login={props.login}
+        setLogin={props.setLogin}
+        setForgotPassword={setForgotPassword}
+        setVerifyAccount={setVerifyAccount}
+      />
+      <ForgotPassword
+        forgotPassword={forgotPassword}
+        setForgotPassword={setForgotPassword}
+        setLogin={props.setLogin}
+      />
+      <Signup
+        signup={signup}
+        setSignup={setSignup}
+        setVerifyAccount={setVerifyAccount}
+      />
+      <VerifyAccount
+        verifyAccount={verifyAccount}
+        setVerifyAccount={setVerifyAccount}
+      />
     </div>
   );
 }

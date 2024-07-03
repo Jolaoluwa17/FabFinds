@@ -128,6 +128,7 @@ const QuickView: React.FC<QuickViewProps> = ({ quickview, setQuickView }) => {
                     sizeBox === index ? "quick_view_size_active" : ""
                   }`}
                   onClick={() => handleSizeClick(index)}
+                  style={{cursor: "pointer"}}
                 >
                   {size.sizeName}
                 </div>

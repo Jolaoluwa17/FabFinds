@@ -7,7 +7,6 @@ import { useState } from "react";
 
 const FeaturedCollection = () => {
   const [quickview, setQuickView] = useState(false);
-  console.log(quickview);
 
   return (
     <div className="featuredCollection-root">

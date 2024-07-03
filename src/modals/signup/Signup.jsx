@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import SignupForm from "@/components/Landing Page/signupForm/SignupForm";
 import "./signup.css";
@@ -16,10 +16,14 @@ function Signup(props) {
           >
             <AiOutlineClose />
           </div>
-          <div className="title">Finish signing up</div>
+          <div className="title">Join us today</div>
         </div>
+        <div className="subTitle">Experience Fashion Like Never Before</div>
         <div>
-          <SignupForm />
+          <SignupForm
+            setVerifyAccount={props.setVerifyAccount}
+            setSignup={props.setSignup}
+          />
         </div>
       </div>
     </div>
